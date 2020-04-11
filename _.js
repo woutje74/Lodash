@@ -59,7 +59,7 @@ const _ = {
         };
       };
     },
-    /*drop(array, dropNum){
+    drop(array, dropNum){
       let newArray =[];
       if (dropNum > 0){
         newArray = array.slice(dropNum);
@@ -68,31 +68,30 @@ const _ = {
         newArray = array.slice(1);
         return newArray;
         }                      
-    },*/
-    drop(array, dropNum){
+    },
+    /*drop(array, dropNum){
       if (dropNum === undefined){
         return dropNum = 1;
         };
       let droppedArray = array.slice(dropNum);
       return droppedArray;                           
-    },
+    },*/
     dropWhile(array, predicate){
       let dropNumber = array.findIndex((element, index) => !predicate(element, index, array));
       let droppedArray = this.drop(array, dropNumber);
       return droppedArray;
     }, 
-    chunk(array, size){
-      const newArray = [];
-      if (size === undefined){
-          size = 1;
+    chunk(array, size){ //array = array to be chopped up into chunks, size = the number of elements in each chunk
+      const newArray = []; //new array that will store the chunks from another array
+      if (size === undefined){ 
+          size = 1; // if size is not defined the size should be set to 1
         } else {
             size = size;};
-         
-      for (j = 0; j < array.length; j + size){
-        const chunkArray = array.splice(0, (0 + size));     
-        newArray.push(chunkArray);
+      for (j = 0; j < array.length; j + size){ //loops through the array and increments with the chunk size
+        const chunkArray = array.splice(0, (0 + size));  //creates the chunkArray from element in index 0 up to chunk size   
+        newArray.push(chunkArray); // pushes the chunkArray in a new array
         };
-      return newArray;
+      return newArray; //after finishing the loop returns the new array.
     }      
 };
 
